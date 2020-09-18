@@ -19,9 +19,22 @@ public class PmsBrandServiceImpl implements IPmsBrandService {
     @Autowired
     private PmsBrandMapper pmsBrandMapper;
 
+    /**
+     * 查询所有的商品品牌
+     * @return
+     */
     @Override
     public List<PmsBrand> selectAllPmsBrands() {
-        List<PmsBrand> pmsBrands = pmsBrandMapper.selectByExample(new PmsBrandExample());
-        return pmsBrands;
+        return pmsBrandMapper.selectByExample(new PmsBrandExample());
+    }
+
+    /**
+     * 添加商品品牌
+     * @param pmsBrand
+     * @return
+     */
+    @Override
+    public int insertPmsBrand(PmsBrand pmsBrand) {
+        return pmsBrandMapper.insert(pmsBrand);
     }
 }
