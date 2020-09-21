@@ -16,6 +16,9 @@ public class CommonPage<T> {
     private long total;
     private List<T> data;
 
+    /**
+     * 将PageHelper分页后的list转为分页信息，重新封装分页信息
+     */
     public static <T> CommonPage<T> resultPage(List<T> data){
         CommonPage<T> commonPage = new CommonPage<T>();
         PageInfo<T> pageInfo = new PageInfo<>(data);

@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * @author Administrator
  */
+
 @Configuration
 @MapperScan("com.mall.mbg.mapper")
 public class MybatisConfig {

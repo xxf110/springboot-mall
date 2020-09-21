@@ -1,5 +1,6 @@
 package com.mall.service.impl;
 
+import com.github.pagehelper.PageHelper;
 import com.mall.mbg.mapper.PmsBrandMapper;
 import com.mall.mbg.model.PmsBrand;
 import com.mall.mbg.model.PmsBrandExample;
@@ -36,5 +37,47 @@ public class PmsBrandServiceImpl implements IPmsBrandService {
     @Override
     public int insertPmsBrand(PmsBrand pmsBrand) {
         return pmsBrandMapper.insert(pmsBrand);
+    }
+
+    /**
+     * 根据指定id删除商品品牌
+     * @param id
+     * @return
+     */
+    @Override
+    public int deletePmsBrand(Long id) {
+        return pmsBrandMapper.deleteByPrimaryKey(id);
+    }
+
+    /**
+     * 根据id查询商品品牌信息
+     * @param id
+     * @return
+     */
+    @Override
+    public PmsBrand findById(Long id) {
+        return pmsBrandMapper.selectByPrimaryKey(id);
+    }
+
+    /**
+     * 修改商品信息
+     * @param pmsBrand
+     * @return
+     */
+    @Override
+    public int updateBrand(PmsBrand pmsBrand) {
+        return pmsBrandMapper.updateByPrimaryKey(pmsBrand);
+    }
+
+    /**
+     * 分页
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    @Override
+    public List<PmsBrand> listPageByBrand(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        return pmsBrandMapper.selectByExample(new PmsBrandExample());
     }
 }
